@@ -5,9 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript">
+        function displayInformation () {
+            // Your code goes here. 
+            // Do not change any other code in this file
+            // All of the steps below must be achieved using JavaScript!
+    
+            
+            // 1. Change the h1 element to your name.
+            document.querySelector("h1").innerHTML = "Ammad";
+            // 2. Update the three span elements using ONLY JavaScript
+            document.getElementById("URL").innerHTML = document.URL;
+            document.querySelector("#URL").innerHTML = document.URL;
+
+            document.querySelector("#items").innerHTML = document.querySelectorAll("h2").length;
+            document.querySelector("#time").innerHTML = new Date();
+                    
+        }
+        function changeBackground() {
+            document.body.style.backgroundColor = "lightblue";
+            document.body.style.margin = "20px";
+        }
+        function toggleBackground() {
+            var currentColor = document.body.style.backgroundColor;
+            if (currentColor === "lightblue") {
+                document.body.style.backgroundColor = "green";
+            } else {
+                document.body.style.backgroundColor = "lightblue";
+            }
+        }
+        function flashBackground() {
+            var currentColor = document.body.style.backgroundColor;
+            // create the random color
+            var newColor = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+            var count = 0;
+            var interval = setInterval(function() {
+                if (count % 2 === 0) {
+                    document.body.style.backgroundColor = newColor;
+                } else {
+                    document.body.style.backgroundColor = currentColor;
+                }
+                count++;
+                if (count === 10) {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+    </script>
     <title>Pets</title>
 </head>
-<body>
+<body onload="displayInformation()">
     <a href="#main" class="skip-link">Skip to Main Content</a>
     <header>
         <nav>
@@ -21,6 +68,22 @@
     </header>
     <main id="main">
         <h1>Pets</h1>
+        <div>
+            <h2>Use JavaScript to display the following information here:</h2>
+            <button onclick="changeBackground()">Click me to change background</button>
+            <button onclick="toggleBackground()">Click me to toggle background</button>
+            <button onclick="flashBackground()">Click me to randomly change background</button>
+	        <p>
+                The URL of this page is: <span id = "URL"></span><br/>
+                The number of H2 items for this page: <span id = "items"></span><br/>
+                The current date/time is: <span id = "time"></span><br/>
+            </p>
+
+		    <p oncopy="displayInformation()">Thank you for visiting!</p>
+
+	        
+            <div id="cheer"></div>
+        </div>
             <h2>Bacon Q Dog</h2>
             <img src="images/bacon.jpg" width = "400" alt="Brown labradoodle wearing colorful lei">
             <p>Bacon Q. Dog is a 9yr old labradoodle. He prefers to spend his days lounging among the three different beds/couches that his family has gifted him. He enjoys a walk or two around the neighborhood, as long as he can pretend that he doesn't see any of the other animals to avoid the embarrassment of not wanting to admit he has no wolf-like skills in chasing them.</p> 
